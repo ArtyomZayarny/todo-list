@@ -8,7 +8,7 @@ const App:React.FC =()=> {
     <div className="App">
         <h1>Todo-list</h1>
         <TodoProvider >
-           { (data) => <TodoList posts={data}/> }
+           { (data) => <TodoList data={data}/> }
           </TodoProvider>
     </div>
   );

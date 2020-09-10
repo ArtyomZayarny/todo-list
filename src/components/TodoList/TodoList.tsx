@@ -1,23 +1,22 @@
 import React,{useState, useEffect} from 'react'
 
-
-type TodoListProps = {
-        posts:[] 
+interface TodoListProps {
+        data:[] | Array<{}>
 }
 interface IPost {
-    title:string
+    title?:string
 }
 const TodoList:React.FC<TodoListProps> = (props) => {
-    const [posts,setPosts] = useState([])
-  useEffect( () => {
-      if (props.posts.length ) {
-        setPosts(props.posts)  
+    const [posts,setPosts] = useState([{}])
+    useEffect( () => {
+      if (props.data.length) {
+        setPosts(props.data)  
       }
-  }, [props.posts])
+    }, [props.data])
 
     return (
         <ul>
-          {posts.map( (post:IPost) => <li>{post.title}</li>)}       
+          {posts.map( (post:IPost) => <li>{post.title}</li>) }       
         </ul>
     )
 }
